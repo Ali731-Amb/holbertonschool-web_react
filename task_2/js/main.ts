@@ -151,3 +151,17 @@ function executeWork(employee: Director | TeacherClass): void {
 // Tests
 executeWork(createEmployee(200));
 executeWork(createEmployee(1000));
+
+// ========== TÂCHE 7 : String Literal Types ==========
+
+// Type Subjects (literal type)
+type Subjects = "Math" | "History";
+
+// Fonction teachClass
+function teachClass(todayClass: Subjects): string {
+  return `Teaching ${todayClass}`;
+}
+
+// Tests
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
