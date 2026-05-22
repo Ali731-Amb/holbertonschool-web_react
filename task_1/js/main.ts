@@ -28,16 +28,6 @@ const teacher3: Teacher = {
 
 console.log(teacher3);
 
-const teacher4: Teacher = {
-  firstName: 'Marie',
-  lastName: 'Curie',
-  fullTimeEmployee: true,
-  location: 'Paris',
-  subject: 'Physics' // Propriété dynamique
-};
-
-console.log(teacher4);
-
 const director1: Directors = {
   firstName: 'John',
   lastName: 'Doe',
@@ -47,3 +37,17 @@ const director1: Directors = {
 };
 
 console.log(director1);
+
+// 1. Interface pour la fonction
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+// 2. La fonction elle-même
+function printTeacher(firstName: string, lastName: string): string {
+  return `${firstName[0]}. ${lastName}`;
+}
+
+// 3. Tests
+console.log(printTeacher("John", "Doe"));
+console.log(printTeacher("Marie", "Curie"));
