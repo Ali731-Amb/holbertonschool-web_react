@@ -1,21 +1,11 @@
+// ========== TÂCHE 1 : Teacher ==========
 interface Teacher {
-  // Propriété readonly
   readonly firstName: string;
   readonly lastName: string;
-  
-  // Propriétés obligatoires
   fullTimeEmployee: boolean;
   location: string;
-  
-  // Propriété optionnelle
   yearsOfExperience?: number;
-  
-  // propriétés dynamiques
   [key: string]: any;
-}
-
-interface Directors extends Teacher {
-  numberOfReports: number;
 }
 
 const teacher3: Teacher = {
@@ -25,8 +15,12 @@ const teacher3: Teacher = {
   location: 'London',
   contract: false,
 };
-
 console.log(teacher3);
+
+// ========== TÂCHE 2 : Directors ==========
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
 
 const director1: Directors = {
   firstName: 'John',
@@ -35,19 +29,45 @@ const director1: Directors = {
   fullTimeEmployee: true,
   numberOfReports: 17,
 };
-
 console.log(director1);
 
-// 1. Interface pour la fonction
+// ========== TÂCHE 3 : printTeacher ==========
 interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// 2. La fonction elle-même
 function printTeacher(firstName: string, lastName: string): string {
   return `${firstName[0]}. ${lastName}`;
 }
 
-// 3. Tests
 console.log(printTeacher("John", "Doe"));
 console.log(printTeacher("Marie", "Curie"));
+
+// ========== TÂCHE 4 : StudentClass ========== 
+
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
+  
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+  
+  workOnHomework(): string {
+    return "Currently working";
+  }
+  
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+const student1 = new StudentClass("John", "Doe");
+console.log(student1.displayName());
+console.log(student1.workOnHomework());
